@@ -39,3 +39,60 @@ footer {
     width: 15%;
     height: 100%;
 }
+
+dialog {
+    border: 2px solid white;
+    background-color: navy;
+    height: 80vh;
+    width: 30vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 25px;
+    font-size: 1.3em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+dialog input,
+textarea,
+select {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.2em;
+    padding: 4px;
+}
+
+dialog input {
+    height: 30px;
+}
+
+dialog select {
+    height: 50px;
+    width: 170px;
+    font-size: 1.1em;
+}
+
+#createTodoItem {
+    height: 50px;
+    width: 150px;
+    background-color: navy;
+    color: white;
+    font-size: 1.3em;
+    margin-top: 5px;
+    border-radius: 15px;
+    border: 2px solid white;
+    transition: 0.5s;
+}
+
+#createTodoItem:hover {
+    background-color: white;
+    color: navy;
+    transition: 0.5s;
+    cursor: pointer;
+}
