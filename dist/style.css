@@ -40,7 +40,7 @@ footer {
     height: 100%;
 }
 
-dialog {
+dialog[open] {
     border: 2px solid white;
     background-color: navy;
     height: 80vh;
@@ -79,7 +79,8 @@ dialog select {
     font-size: 1.1em;
 }
 
-#createTodoItem {
+#createTodoItem,
+#closeDialog {
     height: 50px;
     width: 150px;
     background-color: navy;
@@ -96,4 +97,35 @@ dialog select {
     color: navy;
     transition: 0.5s;
     cursor: pointer;
+}
+
+#closeDialog {
+    color: red;
+    border: 2px solid red;
+}
+
+#closeDialog:hover {
+    background-color: red;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#addItem {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: navy;
+    color: white;
+    border-radius: 50px;
+    font-size: 2em;
 }
