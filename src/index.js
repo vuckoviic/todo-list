@@ -11,3 +11,24 @@ addItem.addEventListener('click', ()=> {
 closeDialog.addEventListener('click', ()=> {
     dialog.close();
 });
+
+class Item {
+    constructor(title, description, dueDate, priority) {
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
+    }
+}
+
+const createTodoItem = document.getElementById("createTodoItem");
+
+createTodoItem.addEventListener('click', ()=> {
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const dueDate = document.getElementById("dueDate").value;
+    const priority = document.getElementById("priority").value;
+
+    const item = new Item(title, description, dueDate, priority);
+    console.log(item);
+});
