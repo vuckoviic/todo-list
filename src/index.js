@@ -23,12 +23,29 @@ class Item {
 
 const createTodoItem = document.getElementById("createTodoItem");
 
-createTodoItem.addEventListener('click', ()=> {
+createTodoItem.addEventListener('click', (event)=> {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const dueDate = document.getElementById("dueDate").value;
     const priority = document.getElementById("priority").value;
 
-    const item = new Item(title, description, dueDate, priority);
-    console.log(item);
+    if (title.length < 1) {
+        alert("Please Insert a Title.")
+    }
+
+    else if (description.length < 1) {
+        alert("Please Insert a Description.")
+    }
+
+    else if (dueDate === "") {
+        alert("Please Choose Your Due Date.")
+    }
+
+    else {
+        const item = new Item(title, description, dueDate, priority);
+        console.log(item);
+    }
+
+    event.preventDefault();
+    dialog.close();
 });
