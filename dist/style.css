@@ -66,6 +66,7 @@ select {
     border: none;
     font-size: 1.2em;
     padding: 4px;
+    color: navy;
 }
 
 dialog input {
