@@ -19,6 +19,29 @@ class Item {
         this.dueDate = dueDate;
         this.priority = priority;
     }
+
+    showingItems() {
+        const showItem = document.createElement("div");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        const showTitle = document.createElement("div");
+        const showDescription = document.createElement("div");
+        const showDueDate = document.createElement("div");
+
+        showTitle.innerHTML ="<h3>" + this.title + "</h3>";
+        showDescription.innerHTML ="<p>" + this.description + "</p>";
+        showDueDate.innerHTML ="<p>" + this.dueDate + "</p>";
+        
+        showItem.appendChild(checkbox);
+        showItem.appendChild(showTitle);
+        showItem.appendChild(showDescription);
+        showItem.appendChild(showDueDate);
+
+        showItem.classList.add("showItemDiv");
+        showDescription.classList.add("showDescription");
+
+        content.appendChild(showItem);
+    }
 }
 
 let todoItems = [];
@@ -47,6 +70,7 @@ createTodoItem.addEventListener('click', (event)=> {
         const item = new Item(title, description, dueDate, priority);
         todoItems.push(item);
         console.log(todoItems);
+        item.showingItems();
     }
 
     event.preventDefault();
@@ -55,3 +79,6 @@ createTodoItem.addEventListener('click', (event)=> {
 
 // I am not sure if this should be in another module, FOR NOW I will be
 // writting it here (I am talking about visually presenting objects)
+
+const content = document.getElementById("content");
+
