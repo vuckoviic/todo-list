@@ -21,6 +21,8 @@ class Item {
     }
 }
 
+let todoItems = [];
+
 const createTodoItem = document.getElementById("createTodoItem");
 
 createTodoItem.addEventListener('click', (event)=> {
@@ -43,9 +45,13 @@ createTodoItem.addEventListener('click', (event)=> {
 
     else {
         const item = new Item(title, description, dueDate, priority);
-        console.log(item);
+        todoItems.push(item);
+        console.log(todoItems);
     }
 
     event.preventDefault();
     dialog.close();
 });
+
+// I am not sure if this should be in another module, FOR NOW I will be
+// writting it here (I am talking about visually presenting objects)
