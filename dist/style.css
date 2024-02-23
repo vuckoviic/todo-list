@@ -45,9 +45,11 @@ dialog[open] {
     background-color: navy;
     height: 80vh;
     width: 30vw;
-    position: relative;
+    position: absolute;
+    float: left;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 25px;
     font-size: 1.3em;
     color: white;
@@ -115,12 +117,16 @@ dialog select {
     position: relative;
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
 }
 
 #addItem {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
+    position: fixed;
+    right: 25px;
+    bottom: 80px;
     height: 50px;
     width: 50px;
     border: none;
@@ -128,4 +134,28 @@ dialog select {
     color: white;
     border-radius: 50px;
     font-size: 2em;
+}
+
+.showItemDiv {
+    display: flex;
+    border: 2px solid grey;
+    border-radius: 25px;
+    gap: 15px;
+    min-width: 40%;
+    min-height: 50px;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 5px;
+}
+
+.showItemDiv input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+}
+
+.showDescription {
+    font-style: italic;
+    row-gap: 5px;
+    min-width: 50px;
 }
