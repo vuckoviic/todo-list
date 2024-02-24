@@ -7,6 +7,7 @@ export function showingItems() {
     const showItem = document.createElement("div");
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.classList.add("checkbox");
     const showTitle = document.createElement("div");
     const showDescription = document.createElement("div");
     const showDueDate = document.createElement("div");
