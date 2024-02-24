@@ -1,11 +1,13 @@
 import { Item, todoItems, dialog } from "./index.js";
 import { showingItems } from "./showingItems.js";
 
+export let priority;
+
 export function createTodoItemFunc (event) {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const dueDate = document.getElementById("dueDate").value;
-    const priority = document.getElementById("priority").value;
+    priority = document.getElementById("priority").value;
 
     if (title.length < 1) {
         alert("Please Insert a Title.")

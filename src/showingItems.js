@@ -1,3 +1,4 @@
+import { priority } from "./createTodoItem.js";
 import { todoItems } from "./index.js";
 
 const content = document.getElementById("content");
@@ -14,6 +15,18 @@ export function showingItems() {
     showDueDate.innerHTML ="<p>" + todoItems[(todoItems.length-1)].dueDate + "</p>";
     
     console.log(todoItems.length - 1);
+
+    if (priority === "low") {
+        showItem.style.backgroundColor = "lightblue";
+    }
+
+    else if (priority == "normal") {
+        showItem.style.backgroundColor = "rgb(51, 126, 245)";
+    }
+
+    else {
+        showItem.style.backgroundColor = "red";
+    }
 
     showItem.appendChild(checkbox);
     showItem.appendChild(showTitle);
