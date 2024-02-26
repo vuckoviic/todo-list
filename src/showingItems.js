@@ -30,5 +30,5 @@ export function showingItems() {
 
     content.appendChild(showItem);
 
-    showItem.addEventListener('click', checkCheckbox);
+    checkbox.addEventListener('click', checkCheckbox);
 }
