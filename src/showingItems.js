@@ -21,6 +21,8 @@ export function showingItems() {
 
     settingPriority();
 
+    showItem.setAttribute("data-priority", priority);
+
     showItem.appendChild(checkbox);
     showItem.appendChild(showTitle);
     showItem.appendChild(showDescription);
