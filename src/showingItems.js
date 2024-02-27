@@ -1,5 +1,6 @@
 import { checkCheckbox } from "./checkCheckbox.js";
 import { priority } from "./createTodoItem.js";
+import { editShowItem } from "./editShowItem.js";
 import { todoItems } from "./index.js";
 import { settingPriority } from "./settingPriority.js";
 
@@ -33,4 +34,7 @@ export function showingItems() {
     content.appendChild(showItem);
 
     checkbox.addEventListener('click', checkCheckbox);
+    showItem.addEventListener('click', () => {
+        editShowItem(showItem);
+    });
 }
