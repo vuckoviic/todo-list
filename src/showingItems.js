@@ -36,5 +36,5 @@ export function showingItems() {
     checkbox.addEventListener('click', checkCheckbox);
     showItem.addEventListener('click', () => {
         editShowItem(showItem);
-    });
+    }, {once : true});
 }
