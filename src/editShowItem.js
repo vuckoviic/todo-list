@@ -36,13 +36,18 @@ export function editShowItem(showItem) {
     inputPriority.appendChild(optionLow);
     inputPriority.appendChild(optionNormal);
     inputPriority.appendChild(optionHigh);
-    /*
-        if (showItem.backgroundColor == "red") {
-            priority.selected = "high";
-        }
-
-        or find current priority by data-priority attribute
-    */
+    
+    if (originalPriority == "low") {
+        optionLow.selected = true;
+    }
+    
+    else if (originalPriority == "normal") {
+        optionNormal.selected = true;
+    }
+    
+    else {
+        optionHigh.selected = true;
+    }
 
     inputDueDate.type = "date";
     
