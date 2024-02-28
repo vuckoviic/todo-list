@@ -23,15 +23,15 @@ export function editShowItem(showItem) {
     optionHigh.setAttribute("value", "high");
 
     const children = showItem.children;
-    const originalTitle = children.item(1);
-    const originalDescription = children.item(2);
-    const originalDate = children.item(3);
+    const originalTitle = children.item(1).firstChild.innerText;
+    const originalDescription = children.item(2).firstChild.innerText;
+    const originalDueDate = children.item(3).firstChild.innerText;
     const originalPriority = showItem.getAttribute("data-priority");
-    console.log(originalTitle);
-    console.log(originalDescription);
-    console.log(originalDate);
-    console.log(originalPriority);
-    
+
+    inputTitle.value = originalTitle;
+    inputDescription.innerText = originalDescription;
+    inputDueDate.value = originalDueDate;
+    inputPriority.innerText = originalPriority;
 
     inputPriority.appendChild(optionLow);
     inputPriority.appendChild(optionNormal);
@@ -50,5 +50,10 @@ export function editShowItem(showItem) {
     showItem.appendChild(inputDescription);
     showItem.appendChild(inputDueDate);
     showItem.appendChild(inputPriority);
+
+
+    showItem.removeChild(children.item(1));
+    showItem.removeChild(children.item(1));
+    showItem.removeChild(children.item(1));
 
 }
