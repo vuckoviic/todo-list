@@ -5,7 +5,7 @@ import { todoItems } from "./index.js";
 import { settingPriority } from "./settingPriority.js";
 
 const content = document.getElementById("content");
-
+export { content };
 export let showItem;
 
 export function showingItems() {
