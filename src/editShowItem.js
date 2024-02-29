@@ -1,3 +1,4 @@
+import { settingPriority } from "./settingPriority";
 import { showItem } from "./showingItems";
 import { content } from "./showingItems";
 
@@ -82,7 +83,34 @@ export function editShowItem(showItem) {
         const newTitle = document.createElement("h3");
         const newDescription = document.createElement("p");
         const newDueDate = document.createElement("p");
+        const newPriority = showItem.setAttribute("data-priority", originalPriority);
+
+        newTitle.innerText = originalTitle;
+        newDescription.innerText = originalDescription;
+        newDescription.style.fontStyle = "italic";
+        newDueDate.innerText = originalDueDate;
+
+        showItem.appendChild(newTitle);
+        showItem.appendChild(newDescription);
+        showItem.appendChild(newDueDate);
+
+        showItem.removeChild(inputTitle);
+        showItem.removeChild(inputDescription);
+        showItem.removeChild(inputDueDate);
+        showItem.removeChild(inputPriority);
+
+        showItem.removeChild(saveButton);
+        showItem.removeChild(closeButton);
+        showItem.removeChild(deleteButton);
+    })
+
+    saveButton.addEventListener("click", () => {
+        const newTitle = document.createElement("h3");
+        const newDescription = document.createElement("p");
+        const newDueDate = document.createElement("p");
         const newPriority = showItem.setAttribute("data-priority", inputPriority);
+
+        // settingPriority();
 
         newTitle.innerText = inputTitle.value;
         newDescription.innerText = inputDescription.value;
@@ -101,6 +129,6 @@ export function editShowItem(showItem) {
         showItem.removeChild(saveButton);
         showItem.removeChild(closeButton);
         showItem.removeChild(deleteButton);
-    })
+    });
 
 }
