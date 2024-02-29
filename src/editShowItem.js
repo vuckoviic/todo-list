@@ -1,3 +1,4 @@
+import { todoItems } from ".";
 import { settingPriority } from "./settingPriority";
 import { showItem } from "./showingItems";
 import { content } from "./showingItems";
@@ -116,6 +117,14 @@ export function editShowItem(showItem) {
         newDescription.innerText = inputDescription.value;
         newDescription.style.fontStyle = "italic";
         newDueDate.innerText = inputDueDate.value;
+
+        const index = showItem.getAttribute("data-index");
+        todoItems[index].title = inputTitle.value;
+        todoItems[index].description = inputDescription.value;
+        todoItems[index].dueDate= inputDueDate.value;
+        todoItems[index].priority = inputPriority;
+
+        console.log(todoItems[index]);
 
         showItem.appendChild(newTitle);
         showItem.appendChild(newDescription);
