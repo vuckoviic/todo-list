@@ -34,7 +34,7 @@ export function showingItems() {
     content.appendChild(showItem);
 
     checkbox.addEventListener('click', checkCheckbox);
-    showItem.addEventListener('click', () => {
-        editShowItem(showItem);
+    showItem.addEventListener('click', (e) => {
+        editShowItem(e.target);
     }, {once : true});
 }
