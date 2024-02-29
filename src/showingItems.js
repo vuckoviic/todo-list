@@ -35,6 +35,13 @@ export function showingItems() {
 
     checkbox.addEventListener('click', checkCheckbox);
     showItem.addEventListener('click', (e) => {
-        editShowItem(e.target);
+        if (e.target == showItem) {
+            editShowItem(e.target);
+        }
+        
+        else {
+            console.log("Error! Clicked element can't be processed");
+        }
+
     }, {once : true});
 }
