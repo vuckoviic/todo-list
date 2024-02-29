@@ -71,11 +71,36 @@ export function editShowItem(showItem) {
     deleteButton.innerText = "Delete";
 
     showItem.appendChild(deleteButton);
-    showItem.appendChild(saveButton);
     showItem.appendChild(closeButton);
+    showItem.appendChild(saveButton);
 
     deleteButton.addEventListener("click", () => {
         content.removeChild(showItem);
     });
+
+    closeButton.addEventListener("click", () => {
+        const newTitle = document.createElement("h3");
+        const newDescription = document.createElement("p");
+        const newDueDate = document.createElement("p");
+        const newPriority = showItem.setAttribute("data-priority", inputPriority);
+
+        newTitle.innerText = inputTitle.value;
+        newDescription.innerText = inputDescription.value;
+        newDescription.style.fontStyle = "italic";
+        newDueDate.innerText = inputDueDate.value;
+
+        showItem.appendChild(newTitle);
+        showItem.appendChild(newDescription);
+        showItem.appendChild(newDueDate);
+
+        showItem.removeChild(inputTitle);
+        showItem.removeChild(inputDescription);
+        showItem.removeChild(inputDueDate);
+        showItem.removeChild(inputPriority);
+
+        showItem.removeChild(saveButton);
+        showItem.removeChild(closeButton);
+        showItem.removeChild(deleteButton);
+    })
 
 }
