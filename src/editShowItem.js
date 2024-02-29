@@ -1,4 +1,5 @@
 import { showItem } from "./showingItems";
+import { content } from "./showingItems";
 
 export function editShowItem(showItem) {
     // for (const child of showItem.children) {
@@ -60,5 +61,21 @@ export function editShowItem(showItem) {
     showItem.removeChild(children.item(1));
     showItem.removeChild(children.item(1));
     showItem.removeChild(children.item(1));
+
+    const saveButton = document.createElement("button");
+    const closeButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
+
+    saveButton.innerText = "Save";
+    closeButton.innerText = "Close";
+    deleteButton.innerText = "Delete";
+
+    showItem.appendChild(deleteButton);
+    showItem.appendChild(saveButton);
+    showItem.appendChild(closeButton);
+
+    deleteButton.addEventListener("click", () => {
+        content.removeChild(showItem);
+    });
 
 }
