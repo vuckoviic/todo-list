@@ -23,6 +23,7 @@ export function showingItems() {
     settingPriority();
 
     showItem.setAttribute("data-priority", priority);
+    showItem.setAttribute("data-index", todoItems.length-1);
 
     showItem.appendChild(checkbox);
     showItem.appendChild(showTitle);
