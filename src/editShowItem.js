@@ -2,6 +2,10 @@ import { todoItems } from ".";
 import { settingPriority } from "./settingPriority";
 import { showItem } from "./showingItems";
 import { content } from "./showingItems";
+import { priority } from "./createTodoItem";
+
+export let newPriority;
+export let inputPriority;
 
 export function editShowItem(showItem) {
     // for (const child of showItem.children) {
@@ -109,9 +113,7 @@ export function editShowItem(showItem) {
         const newTitle = document.createElement("h3");
         const newDescription = document.createElement("p");
         const newDueDate = document.createElement("p");
-        const newPriority = showItem.setAttribute("data-priority", inputPriority);
-
-        // settingPriority();
+        newPriority = showItem.setAttribute("data-priority", inputPriority);
 
         newTitle.innerText = inputTitle.value;
         newDescription.innerText = inputDescription.value;
@@ -122,9 +124,14 @@ export function editShowItem(showItem) {
         todoItems[index].title = inputTitle.value;
         todoItems[index].description = inputDescription.value;
         todoItems[index].dueDate= inputDueDate.value;
-        todoItems[index].priority = inputPriority;
+        todoItems[index].priority = inputPriority.value;
+
+        priority = inputPriority.value;
+        
+        settingPriority();
 
         console.log(todoItems[index]);
+        console.log("Saved item's priority is: " + todoItems[index].priority);
 
         showItem.appendChild(newTitle);
         showItem.appendChild(newDescription);
