@@ -27,8 +27,9 @@ export function createTodoItemFunc (event) {
         todoItems.push(item);
         console.log(todoItems);
         showingItems();
+        dialog.close();
     }
 
     event.preventDefault();
-    dialog.close();
+
 }
