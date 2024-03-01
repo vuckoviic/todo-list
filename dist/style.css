@@ -159,3 +159,31 @@ dialog select {
     row-gap: 5px;
     min-width: 50px;
 }
+
+.editButton {
+    background-color: navy;
+    color: white;
+    height: 40px;
+    width: 80px;
+    font-size: 1.2em;
+    font-family: inherit;
+    border-radius: 20px;
+    border: none;
+    transition: 0.3s;
+}
+
+.saveEditButton:hover {
+    background-color: green;
+}
+
+.closeEditButton:hover,
+.deleteEditButton:hover {
+    background-color: red;
+}
+
+.saveEditButton:hover,
+.deleteEditButton:hover
+.closeEditButton:hover {
+    transition: 0.3s;
+    cursor: pointer;
+}

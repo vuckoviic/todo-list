@@ -4,13 +4,8 @@ import { showItem } from "./showingItems";
 import { content } from "./showingItems";
 import { priority } from "./createTodoItem";
 
-export let newPriority;
-export let inputPriority;
 
 export function editShowItem(showItem) {
-    // for (const child of showItem.children) {
-    //     console.log(child);
-    //   }
 
     const inputTitle = document.createElement("input");
     const inputDescription = document.createElement("textarea");
@@ -72,6 +67,10 @@ export function editShowItem(showItem) {
     const closeButton = document.createElement("button");
     const deleteButton = document.createElement("button");
 
+    saveButton.classList.add("editButton", "saveEditButton");
+    closeButton.classList.add("editButton", "closeEditButton");
+    deleteButton.classList.add("editButton", "deleteEditButton");
+
     saveButton.innerText = "Save";
     closeButton.innerText = "Close";
     deleteButton.innerText = "Delete";
@@ -113,7 +112,7 @@ export function editShowItem(showItem) {
         const newTitle = document.createElement("h3");
         const newDescription = document.createElement("p");
         const newDueDate = document.createElement("p");
-        newPriority = showItem.setAttribute("data-priority", inputPriority);
+        const newPriority = showItem.setAttribute("data-priority", inputPriority);
 
         newTitle.innerText = inputTitle.value;
         newDescription.innerText = inputDescription.value;
@@ -127,7 +126,7 @@ export function editShowItem(showItem) {
         todoItems[index].priority = inputPriority.value;
 
         priority = inputPriority.value;
-        
+
         settingPriority();
 
         console.log(todoItems[index]);
