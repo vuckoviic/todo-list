@@ -6,8 +6,11 @@ export { dialog };
 const addItem = document.getElementById("addItem");
 const closeDialog = document.getElementById("closeDialog");
 
+const form = document.getElementsByTagName("form")[0];
+
 addItem.addEventListener('click', ()=> {
     dialog.showModal();
+    form.reset();
 });
 
 closeDialog.addEventListener('click', ()=> {
