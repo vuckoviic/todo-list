@@ -28,9 +28,9 @@ export function editShowItem(showItem) {
     optionHigh.setAttribute("value", "high");
 
     const children = showItem.children;
-    const originalTitle = children.item(1).firstChild.innerText;
-    const originalDescription = children.item(2).firstChild.innerText;
-    const originalDueDate = children.item(3).firstChild.innerText;
+    const originalTitle = children.item(1).innerText;
+    const originalDescription = children.item(2).innerText;
+    const originalDueDate = children.item(3).innerText;
     const originalPriority = showItem.getAttribute("data-priority");
 
     inputTitle.value = originalTitle;
