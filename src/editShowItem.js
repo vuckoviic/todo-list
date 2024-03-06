@@ -50,7 +50,7 @@ export function editShowItem(showItem) {
         optionNormal.selected = true;
     }
     
-    else {
+    else if (originalPriority == "high") {
         optionHigh.selected = true;
     }
 
@@ -120,7 +120,6 @@ export function editShowItem(showItem) {
         const newTitle = document.createElement("h3");
         const newDescription = document.createElement("p");
         const newDueDate = document.createElement("p");
-        const newPriority = showItem.setAttribute("data-priority", inputPriority);
 
         newTitle.innerText = inputTitle.value;
         newDescription.innerText = inputDescription.value;
@@ -136,6 +135,8 @@ export function editShowItem(showItem) {
         priority = inputPriority.value;
 
         settingPriority();
+
+        const newPriority = showItem.setAttribute("data-priority", inputPriority.value);
 
         console.log(todoItems[index]);
         console.log("Saved item's priority is: " + todoItems[index].priority);
