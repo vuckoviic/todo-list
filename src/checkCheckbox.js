@@ -7,21 +7,27 @@ export function checkCheckbox(event) {
 
     if (event.target.checked === true) {
         event.target.parentElement.style.backgroundColor = "green";
+        console.log("Div is checked");
+        event.target.parentElement.setAttribute("data-checked", "true");
     }
+
     else {
         if (priority === "low") {
             event.target.parentElement.style.backgroundColor = "lightblue";
-            console.log("Priority is LOW")
+            console.log("Div is not checked");
+            event.target.parentElement.setAttribute("data-checked", "false");
         }
         
         else if (priority == "normal") {
             event.target.parentElement.style.backgroundColor = "rgb(51, 126, 245)";
-            console.log("Priority is NORMAL")
+            console.log("Div is not checked")
+            event.target.parentElement.setAttribute("data-checked", "false");
         }
         
         else {
             event.target.parentElement.style.backgroundColor = "red";
-            console.log("Priority is HIGH")
+            console.log("Div is not checked")
+            event.target.parentElement.setAttribute("data-checked", "false");
         }
     }
 }
