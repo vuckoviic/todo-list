@@ -24,6 +24,8 @@ export function showingItems() {
 
     showItem.setAttribute("data-priority", priority);
     showItem.setAttribute("data-index", todoItems.length-1);
+    showItem.setAttribute("data-checked", "false");
+    showItem.setAttribute("data-editing", "false");
 
     showItem.appendChild(checkbox);
     showItem.appendChild(showTitle);
@@ -35,14 +37,13 @@ export function showingItems() {
     content.appendChild(showItem);
 
     checkbox.addEventListener('click', checkCheckbox);
-    showItem.addEventListener('click', (e) => {
-        if (e.target == showItem) {
-            editShowItem(e.target);
-        }
-        
-        else {
-            console.log("Error! Clicked element can't be processed");
-        }
 
-    }, {once : true});
+    showItem.addEventListener("click", (e) => {
+        if (e.target == showItem) {
+            if (showItem.getAttribute("data-checked") == "false" && showItem.getAttribute("data-editing") == "false") {
+                editShowItem(e.target);
+            }
+        }
+    });
+
 }

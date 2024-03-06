@@ -7,6 +7,9 @@ import { priority } from "./createTodoItem";
 
 export function editShowItem(showItem) {
 
+    showItem.setAttribute("data-editing", "true");
+    console.log("Div IS being edited right now");
+
     const inputTitle = document.createElement("input");
     const inputDescription = document.createElement("textarea");
     const inputDueDate = document.createElement("input");
@@ -81,6 +84,8 @@ export function editShowItem(showItem) {
 
     deleteButton.addEventListener("click", () => {
         content.removeChild(showItem);
+        showItem.setAttribute("data-editing", "false");
+        console.log("Div IS NOT being edited right now.");
     });
 
     closeButton.addEventListener("click", () => {
@@ -106,6 +111,9 @@ export function editShowItem(showItem) {
         showItem.removeChild(saveButton);
         showItem.removeChild(closeButton);
         showItem.removeChild(deleteButton);
+
+        showItem.setAttribute("data-editing", "false");
+        console.log("Div IS NOT being edited right now.");
     })
 
     saveButton.addEventListener("click", () => {
@@ -144,6 +152,9 @@ export function editShowItem(showItem) {
         showItem.removeChild(saveButton);
         showItem.removeChild(closeButton);
         showItem.removeChild(deleteButton);
+
+        showItem.setAttribute("data-editing", "false");
+        console.log("Div IS NOT being edited right now.");
     });
 
 }
