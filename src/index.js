@@ -31,3 +31,8 @@ export let todoItems = [];
 const createTodoItem = document.getElementById("createTodoItem");
 
 createTodoItem.addEventListener('click', createTodoItemFunc);
+
+export function clearContent() {
+    const content = document.getElementById("content");
+    content.innerHTML = "";
+}
