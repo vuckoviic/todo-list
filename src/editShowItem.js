@@ -27,11 +27,15 @@ export function editShowItem(showItem) {
     optionNormal.setAttribute("value", "normal");
     optionHigh.setAttribute("value", "high");
 
+
     const children = showItem.children;
+    const checkbox = children.item(0);
     const originalTitle = children.item(1).innerText;
     const originalDescription = children.item(2).innerText;
     const originalDueDate = children.item(3).innerText;
     const originalPriority = showItem.getAttribute("data-priority");
+
+    checkbox.disabled = true;
 
     inputTitle.value = originalTitle;
     inputDescription.innerText = originalDescription;
@@ -112,6 +116,8 @@ export function editShowItem(showItem) {
         showItem.removeChild(closeButton);
         showItem.removeChild(deleteButton);
 
+        checkbox.disabled = false;
+
         showItem.setAttribute("data-editing", "false");
         console.log("Div IS NOT being edited right now.");
     })
@@ -153,6 +159,8 @@ export function editShowItem(showItem) {
         showItem.removeChild(saveButton);
         showItem.removeChild(closeButton);
         showItem.removeChild(deleteButton);
+
+        checkbox.disabled = false;
 
         showItem.setAttribute("data-editing", "false");
         console.log("Div IS NOT being edited right now.");
