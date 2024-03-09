@@ -1,5 +1,6 @@
 import { showingItems } from "./showingItems.js";
 import { createTodoItemFunc } from  "./createTodoItem.js";
+import { clearContent } from "./clearContent.js";
 
 const dialog = document.getElementsByTagName("dialog")[0];
 export { dialog };
@@ -31,11 +32,6 @@ export let todoItems = [];
 const createTodoItem = document.getElementById("createTodoItem");
 
 createTodoItem.addEventListener('click', createTodoItemFunc);
-
-export function clearContent() {
-    const content = document.getElementById("content");
-    content.innerHTML = "";
-}
 
 const newProjectButton = document.getElementById("newProject");
 const projects = document.getElementById("projects");
@@ -70,9 +66,23 @@ newProjectButton.addEventListener("click", () => {
     project.appendChild(projectSave);
 
     projectSave.addEventListener("click", () => {
+        
         let name = projectNameInput.value;
-        project.innerText = name;
-        name = new Array();
+        
+        if (name.length < 1) {
+            alert("Please Insert Name For Your Project.");
+        }
+
+        else {
+            project.innerText = name;
+            name = new Array();
+    
+            project.addEventListener("click", ()=> {
+                clearContent();
+                // showingItems();
+            });
+        }
+
     });
 
     projectExit.addEventListener("click", () => {
@@ -82,4 +92,5 @@ newProjectButton.addEventListener("click", () => {
     projects.removeChild(newProjectButton);
     projects.appendChild(project);
     projects.appendChild(newProjectButton);
+
 });
