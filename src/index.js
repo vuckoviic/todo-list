@@ -70,7 +70,9 @@ newProjectButton.addEventListener("click", () => {
     project.appendChild(projectSave);
 
     projectSave.addEventListener("click", () => {
-        project.innerText = projectNameInput.value;
+        let name = projectNameInput.value;
+        project.innerText = name;
+        name = new Array();
     });
 
     projectExit.addEventListener("click", () => {
