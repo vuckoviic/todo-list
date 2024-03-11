@@ -202,3 +202,7 @@ dialog select {
     cursor: pointer;
 }
 
+.active-project {
+    font-style: italic;
+    font-weight: bold;
+}

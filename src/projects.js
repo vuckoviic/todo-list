@@ -1,7 +1,30 @@
 import { projects, newProjectButton } from "./index.js";
 import { clearContent } from "./clearContent.js";
 
+const inbox = document.getElementById("inbox");
+
+let allProjects = [];
+allProjects.push(inbox);
+
+inbox.classList.add("active-project");
+inbox.addEventListener("click", ()=> {
+                
+    clearContent();
+    
+    for (let i = 0; i < allProjects.length; i++) {
+        allProjects[i].classList.remove("active-project");
+    }
+
+    inbox.classList.add("active-project");
+
+    // change activity
+    // showingItems();
+
+});
+
+
 export function createNewProject() {
+
     const project = document.createElement("button");
     const projectNameInput = document.createElement("input");
     const projectSave = document.createElement("button");
@@ -41,10 +64,21 @@ export function createNewProject() {
         else {
             project.innerText = name;
             name = new Array();
+            console.log(name);
     
             project.addEventListener("click", ()=> {
+                
                 clearContent();
+                
+                for (let i = 0; i < allProjects.length; i++) {
+                    allProjects[i].classList.remove("active-project");
+                }
+
+                project.classList.add("active-project");
+
+                // change activity
                 // showingItems();
+            
             });
         }
 
@@ -57,5 +91,7 @@ export function createNewProject() {
     projects.removeChild(newProjectButton);
     projects.appendChild(project);
     projects.appendChild(newProjectButton);
+
+    allProjects.push(project);
 
 }
