@@ -28,8 +28,6 @@ export class Item {
     };
 }
 
-export let todoItems = [];
-
 const createTodoItem = document.getElementById("createTodoItem");
 
 createTodoItem.addEventListener('click', createTodoItemFunc);
