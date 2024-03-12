@@ -1,7 +1,7 @@
 import { showingItems } from "./showingItems.js";
 import { createTodoItemFunc } from  "./createTodoItem.js";
 import { clearContent } from "./clearContent.js";
-import { createNewProject } from "./projects.js";
+import { activeArray, createNewProject } from "./projects.js";
 
 const dialog = document.getElementsByTagName("dialog")[0];
 export { dialog };
@@ -30,7 +30,9 @@ export class Item {
 
 const createTodoItem = document.getElementById("createTodoItem");
 
-createTodoItem.addEventListener('click', createTodoItemFunc);
+createTodoItem.addEventListener('click', () => {
+    createTodoItemFunc(activeArray);
+});
 
 export const newProjectButton = document.getElementById("newProject");
 export const projects = document.getElementById("projects");
