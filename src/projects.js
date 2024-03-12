@@ -20,8 +20,6 @@ inbox.addEventListener("click", ()=> {
         allProjects[i].classList.remove("active-project");
     }
 
-    inboxArray.push("JA SAM POPIO");
-
     inbox.classList.add("active-project");
 
     for (let i = 0; i < allProjects.length; i++) {
