@@ -11,6 +11,8 @@ let allProjectArrays = [];
 allProjectArrays.push(inboxArray);
 export let activeArray;
 
+activeArray = inboxArray;
+
 inbox.classList.add("active-project");
 inbox.addEventListener("click", ()=> {
                 
