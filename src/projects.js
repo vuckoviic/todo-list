@@ -2,9 +2,14 @@ import { projects, newProjectButton } from "./index.js";
 import { clearContent } from "./clearContent.js";
 
 const inbox = document.getElementById("inbox");
+let inboxArray = [];
 
 let allProjects = [];
 allProjects.push(inbox);
+
+let allProjectArrays = [];
+allProjectArrays.push(inboxArray);
+export let activeArray;
 
 inbox.classList.add("active-project");
 inbox.addEventListener("click", ()=> {
@@ -15,9 +20,17 @@ inbox.addEventListener("click", ()=> {
         allProjects[i].classList.remove("active-project");
     }
 
+    inboxArray.push("JA SAM POPIO");
+
     inbox.classList.add("active-project");
 
-    // change activity
+    for (let i = 0; i < allProjects.length; i++) {
+        if (allProjects[i].classList.contains("active-project")) {
+            activeArray = allProjectArrays[i]; 
+            console.log("Active array is: " + activeArray.length);
+        }
+    }
+
     // showingItems();
 
 });
@@ -64,7 +77,7 @@ export function createNewProject() {
         else {
             project.innerText = name;
             name = new Array();
-            console.log(name);
+            allProjectArrays.push(name);
     
             project.addEventListener("click", ()=> {
                 
@@ -76,7 +89,13 @@ export function createNewProject() {
 
                 project.classList.add("active-project");
 
-                // change activity
+                for (let i = 0; i < allProjects.length; i++) {
+                    if (allProjects[i].classList.contains("active-project")) {
+                        activeArray = allProjectArrays[i]; 
+                        console.log("Active array is: " + activeArray.length);
+                    }
+                }
+
                 // showingItems();
             
             });
@@ -93,5 +112,7 @@ export function createNewProject() {
     projects.appendChild(newProjectButton);
 
     allProjects.push(project);
+
+
 
 }
