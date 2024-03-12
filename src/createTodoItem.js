@@ -27,8 +27,7 @@ export function createTodoItemFunc (activeArray) {
         console.log(item);
         console.log(activeArray);
         activeArray.push(item);
-        console.log(activeArray);
-        showingItems();
+        showingItems(activeArray);
         dialog.close();
     }
 

@@ -1,5 +1,6 @@
 import { projects, newProjectButton } from "./index.js";
 import { clearContent } from "./clearContent.js";
+import { showingItems } from "./showingItems.js";
 
 const inbox = document.getElementById("inbox");
 let inboxArray = [];
@@ -27,11 +28,10 @@ inbox.addEventListener("click", ()=> {
     for (let i = 0; i < allProjects.length; i++) {
         if (allProjects[i].classList.contains("active-project")) {
             activeArray = allProjectArrays[i]; 
-            console.log("Active array is: " + activeArray.length);
         }
     }
 
-    // showingItems();
+    showingItems(activeArray);
 
 });
 
@@ -91,12 +91,11 @@ export function createNewProject() {
 
                 for (let i = 0; i < allProjects.length; i++) {
                     if (allProjects[i].classList.contains("active-project")) {
-                        activeArray = allProjectArrays[i]; 
-                        console.log("Active array is: " + activeArray.length);
+                        activeArray = allProjectArrays[i];
                     }
                 }
 
-                // showingItems();
+                showingItems(activeArray);
             
             });
         }
@@ -112,7 +111,5 @@ export function createNewProject() {
     projects.appendChild(newProjectButton);
 
     allProjects.push(project);
-
-
 
 }
