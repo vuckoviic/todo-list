@@ -1,9 +1,10 @@
-import { Item, todoItems, dialog } from "./index.js";
+import { Item, dialog } from "./index.js";
+import { activeArray } from "./projects.js";
 import { showingItems } from "./showingItems.js";
 
 export let priority;
 
-export function createTodoItemFunc (event) {
+export function createTodoItemFunc (event, activeArray) {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const dueDate = document.getElementById("dueDate").value;
@@ -24,12 +25,12 @@ export function createTodoItemFunc (event) {
     else {
         const item = new Item(title, description, dueDate, priority);
         console.log(item);
-        todoItems.push(item);
-        console.log(todoItems);
+        console.log(activeArray);
+        activeArray.push(item);
+        console.log(activeArray);
         showingItems();
         dialog.close();
     }
 
-    event.preventDefault();
 
 }
