@@ -8,6 +8,8 @@ const content = document.getElementById("content");
 export { content };
 export let showItem;
 
+const inbox = document.getElementById("inbox");
+
 export let displayedItems = 0;
 
 export function showingItems(activeArray) {
@@ -58,7 +60,7 @@ export function showingItems(activeArray) {
     
         showItem.addEventListener("click", (e) => {
             if (e.target == showItem) {
-                if (showItem.getAttribute("data-checked") == "false" && showItem.getAttribute("data-editing") == "false") {
+                if (showItem.getAttribute("data-checked") == "false" && showItem.getAttribute("data-editing") == "false" && inbox.classList.contains("active-project") == false) {
                     editShowItem(e.target);
                 }
             }

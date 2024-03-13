@@ -3,7 +3,7 @@ import { clearContent } from "./clearContent.js";
 import { displayedItems, showingItems, showItem } from "./showingItems.js";
 
 const inbox = document.getElementById("inbox");
-let inboxArray = [];
+export let inboxArray = [];
 
 let allProjects = [];
 allProjects.push(inbox);
