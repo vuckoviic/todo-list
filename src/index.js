@@ -5,7 +5,17 @@ import { activeArray, createNewProject } from "./projects.js";
 
 const dialog = document.getElementsByTagName("dialog")[0];
 export { dialog };
-const addItem = document.getElementById("addItem");
+export const addItem = document.getElementById("addItem");
+addItem.disabled = true;
+
+if (addItem.disabled == true) {
+    addItem.style.backgroundColor = "grey";
+}
+
+else {
+    addItem.style.backgroundColor = "navy";
+}
+
 const closeDialog = document.getElementById("closeDialog");
 
 const form = document.getElementsByTagName("form")[0];

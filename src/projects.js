@@ -1,6 +1,6 @@
-import { projects, newProjectButton } from "./index.js";
+import { projects, newProjectButton, addItem } from "./index.js";
 import { clearContent } from "./clearContent.js";
-import { displayedItems, showingItems } from "./showingItems.js";
+import { displayedItems, showingItems, showItem } from "./showingItems.js";
 
 const inbox = document.getElementById("inbox");
 let inboxArray = [];
@@ -18,6 +18,9 @@ inbox.classList.add("active-project");
 inbox.addEventListener("click", ()=> {
                 
     clearContent();
+
+    addItem.disabled = true;
+    addItem.style.backgroundColor = "grey";
     
     for (let i = 0; i < allProjects.length; i++) {
         allProjects[i].classList.remove("active-project");
@@ -95,6 +98,9 @@ export function createNewProject() {
                 
                 clearContent();
                 
+                addItem.disabled = false;
+                addItem.style.backgroundColor = "navy";
+
                 for (let i = 0; i < allProjects.length; i++) {
                     allProjects[i].classList.remove("active-project");
                     allProjects[i].displayed = false;
