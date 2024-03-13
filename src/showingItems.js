@@ -8,9 +8,11 @@ const content = document.getElementById("content");
 export { content };
 export let showItem;
 
+export let displayedItems = 0;
+
 export function showingItems(activeArray) {
 
-    for (let i = 0; i < activeArray.length; i++) {
+    for (let i = displayedItems; i < activeArray.length; i++) {
 
         showItem = document.createElement("div");
         const checkbox = document.createElement("input");
@@ -48,6 +50,9 @@ export function showingItems(activeArray) {
                 }
             }
         });
+
+        activeArray[i].displayed = true;
+        displayedItems++;
     
     }
     

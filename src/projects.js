@@ -1,6 +1,6 @@
 import { projects, newProjectButton } from "./index.js";
 import { clearContent } from "./clearContent.js";
-import { showingItems } from "./showingItems.js";
+import { displayedItems, showingItems } from "./showingItems.js";
 
 const inbox = document.getElementById("inbox");
 let inboxArray = [];
@@ -21,13 +21,15 @@ inbox.addEventListener("click", ()=> {
     
     for (let i = 0; i < allProjects.length; i++) {
         allProjects[i].classList.remove("active-project");
+        allProjects[i].displayed = false;
+        displayedItems = 0;
     }
 
     inbox.classList.add("active-project");
 
     for (let i = 0; i < allProjects.length; i++) {
         if (allProjects[i].classList.contains("active-project")) {
-            activeArray = allProjectArrays[i]; 
+            activeArray = allProjectArrays[i];
         }
     }
 
@@ -85,6 +87,8 @@ export function createNewProject() {
                 
                 for (let i = 0; i < allProjects.length; i++) {
                     allProjects[i].classList.remove("active-project");
+                    allProjects[i].displayed = false;
+                    displayedItems = 0;
                 }
 
                 project.classList.add("active-project");
