@@ -1,4 +1,4 @@
-import { todoItems } from ".";
+import { activeArray } from "./projects.js";
 import { settingPriority } from "./settingPriority";
 import { showItem } from "./showingItems";
 import { content } from "./showingItems";
@@ -88,6 +88,8 @@ export function editShowItem(showItem) {
 
     deleteButton.addEventListener("click", () => {
         content.removeChild(showItem);
+        const index = parseInt(showItem.getAttribute("data-index"));
+        activeArray.pop(activeArray[index]);
         showItem.setAttribute("data-editing", "false");
         console.log("Div IS NOT being edited right now.");
     });
@@ -132,20 +134,20 @@ export function editShowItem(showItem) {
         newDescription.style.fontStyle = "italic";
         newDueDate.innerText = inputDueDate.value;
 
-        const index = showItem.getAttribute("data-index");
-        todoItems[index].title = inputTitle.value;
-        todoItems[index].description = inputDescription.value;
-        todoItems[index].dueDate= inputDueDate.value;
-        todoItems[index].priority = inputPriority.value;
+        const index = parseInt(showItem.getAttribute("data-index"));
+        activeArray[index].title = inputTitle.value;
+        activeArray[index].description = inputDescription.value;
+        activeArray[index].dueDate= inputDueDate.value;
+        activeArray[index].priority = inputPriority.value;
 
         priority = inputPriority.value;
 
-        settingPriority();
+        settingPriority(showItem);
 
         const newPriority = showItem.setAttribute("data-priority", inputPriority.value);
 
-        console.log(todoItems[index]);
-        console.log("Saved item's priority is: " + todoItems[index].priority);
+        console.log(activeArray[index]);
+        console.log("Saved item's priority is: " + activeArray[index].priority);
 
         showItem.appendChild(newTitle);
         showItem.appendChild(newDescription);
