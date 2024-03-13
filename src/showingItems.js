@@ -33,6 +33,17 @@ export function showingItems(activeArray) {
         showItem.setAttribute("data-index", i);
         showItem.setAttribute("data-checked", "false");
         showItem.setAttribute("data-editing", "false");
+
+        if (activeArray[i].checked == true) {
+            checkbox.checked = true;
+            showItem.setAttribute("data-checked", "true");
+            showItem.style.backgroundColor = "green";
+        }
+
+        else {
+            checkbox.checked = false;
+            showItem.setAttribute("data-checked", "false");
+        }
     
         showItem.appendChild(checkbox);
         showItem.appendChild(showTitle);
