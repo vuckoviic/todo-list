@@ -25,10 +25,12 @@ export function showingItems(activeArray) {
         showDescription.innerHTML ="<p>" + activeArray[i].description + "</p>";
         showDueDate.innerHTML ="<p>" + activeArray[i].dueDate + "</p>";
     
-        settingPriority();
+        priority = activeArray[i].priority;
+
+        settingPriority(showItem);
     
         showItem.setAttribute("data-priority", priority);
-        showItem.setAttribute("data-index", activeArray[i]);
+        showItem.setAttribute("data-index", i);
         showItem.setAttribute("data-checked", "false");
         showItem.setAttribute("data-editing", "false");
     

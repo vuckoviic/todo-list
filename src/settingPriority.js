@@ -1,7 +1,8 @@
 import { priority } from "./createTodoItem.js";
 import { showItem, showingItems } from "./showingItems.js";
 
-export function settingPriority () {
+export function settingPriority (showItem) {
+    
     if (priority === "low") {
         showItem.style.backgroundColor = "lightblue";
     }
