@@ -33,8 +33,17 @@ inbox.addEventListener("click", ()=> {
         }
     }
 
-    showingItems(activeArray);
-
+    for (let i = 0; i < inboxArray.length; i++) {
+        for (let j = 0; j < inboxArray[i].length; j++) {
+            inboxArray[i][j].displayed = false;
+            console.log(inboxArray[i][j]);
+            
+        }
+        console.log("displayedItems: " + displayedItems);
+        displayedItems = 0;
+        showingItems(inboxArray[i]);
+    }
+    
 });
 
 
@@ -80,6 +89,7 @@ export function createNewProject() {
             project.innerText = name;
             name = new Array();
             allProjectArrays.push(name);
+            inboxArray.push(name);
     
             project.addEventListener("click", ()=> {
                 
