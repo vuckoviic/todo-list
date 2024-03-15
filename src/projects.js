@@ -1,7 +1,6 @@
 import { projects, newProjectButton, addItem, informationalP } from "./index.js";
 import { clearContent } from "./clearContent.js";
 import { displayedItems, showingItems, showItem } from "./showingItems.js";
-import onChange from 'on-change';
 
 const inbox = document.getElementById("inbox");
 export let inboxArray = [];
@@ -16,6 +15,8 @@ export let activeArray;
 activeArray = inboxArray;
 
 let name;
+
+const content = document.getElementById("content");
 
 inbox.classList.add("active-project");
 inbox.addEventListener("click", ()=> {
@@ -54,6 +55,7 @@ inbox.addEventListener("click", ()=> {
 
     projectDiv.innerHTML = "";
     projectDiv.appendChild(project);
+    
     for (let i = 0; i < name.length; i++) {
         const projectItem = document.createElement("p");
         projectItem.innerText = `${name[i].title} | ${name[i].dueDate}`;
@@ -76,6 +78,9 @@ inbox.addEventListener("click", ()=> {
         projectDiv.appendChild(projectItem);
         
     }
+
+    content.firstChild.firstChild.disabled = true;
+
 });
 
 let projectDiv;
