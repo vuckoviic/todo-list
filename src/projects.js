@@ -1,6 +1,7 @@
 import { projects, newProjectButton, addItem, informationalP } from "./index.js";
 import { clearContent } from "./clearContent.js";
 import { displayedItems, showingItems, showItem } from "./showingItems.js";
+import onChange from 'on-change';
 
 const inbox = document.getElementById("inbox");
 export let inboxArray = [];
@@ -13,6 +14,8 @@ allProjectArrays.push(inboxArray);
 export let activeArray;
 
 activeArray = inboxArray;
+
+let name;
 
 inbox.classList.add("active-project");
 inbox.addEventListener("click", ()=> {
@@ -48,12 +51,41 @@ inbox.addEventListener("click", ()=> {
     }
     
     content.appendChild(informationalP);
+
+    projectDiv.innerHTML = "";
+    projectDiv.appendChild(project);
+    for (let i = 0; i < name.length; i++) {
+        const projectItem = document.createElement("p");
+        projectItem.innerText = `${name[i].title} | ${name[i].dueDate}`;
+        
+        if (name[i].priority == "low") {
+            projectItem.style.backgroundColor = "lightblue";
+        }
+
+        else if (name[i].priority == "normal") {
+            projectItem.style.backgroundColor = "rgb(51, 126, 245)";
+        }
+
+        else {
+            projectItem.style.backgroundColor = "red";
+        }
+
+        projectItem.style.padding = "2px";
+        projectItem.style.marginTop = "3px";
+
+        projectDiv.appendChild(projectItem);
+        
+    }
 });
 
+let projectDiv;
+let project;
 
 export function createNewProject() {
 
-    const project = document.createElement("button");
+    projectDiv = document.createElement("div");
+
+    project = document.createElement("button");
     const projectNameInput = document.createElement("input");
     const projectSave = document.createElement("button");
     const projectExit = document.createElement("button");
@@ -81,9 +113,11 @@ export function createNewProject() {
     project.appendChild(projectExit);
     project.appendChild(projectSave);
 
+    projectDiv.appendChild(project);
+    
     projectSave.addEventListener("click", () => {
         
-        let name = projectNameInput.value;
+         name = projectNameInput.value;
         
         if (name.length < 1) {
             alert("Please Insert Name For Your Project.");
@@ -117,7 +151,7 @@ export function createNewProject() {
                 }
 
                 showingItems(activeArray);
-            
+
             });
 
             // const deleteProject = document.createElement("button");
@@ -150,10 +184,11 @@ export function createNewProject() {
 
     projectExit.addEventListener("click", () => {
         projects.removeChild(project);
+        projects.removeChild(projectDiv);
     })
 
     projects.removeChild(newProjectButton);
-    projects.appendChild(project);
+    projects.appendChild(projectDiv);
     projects.appendChild(newProjectButton);
 
     allProjects.push(project);
