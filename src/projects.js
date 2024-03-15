@@ -1,4 +1,4 @@
-import { projects, newProjectButton, addItem } from "./index.js";
+import { projects, newProjectButton, addItem, informationalP } from "./index.js";
 import { clearContent } from "./clearContent.js";
 import { displayedItems, showingItems, showItem } from "./showingItems.js";
 
@@ -47,6 +47,7 @@ inbox.addEventListener("click", ()=> {
         showingItems(inboxArray[i]);
     }
     
+    content.appendChild(informationalP);
 });
 
 

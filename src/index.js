@@ -47,4 +47,14 @@ createTodoItem.addEventListener('click', () => {
 export const newProjectButton = document.getElementById("newProject");
 export const projects = document.getElementById("projects");
 
-newProjectButton.addEventListener("click", createNewProject)
+newProjectButton.addEventListener("click", createNewProject);
+
+const content = document.getElementById("content");
+
+export const informationalP = document.createElement("p");
+informationalP.innerHTML = "The inbox section is for <b>review only</b>. You can't create or edit todo items here, you need to create separate project for that.";
+informationalP.style.fontStyle = "italic";
+informationalP.style.position = "absolute";
+informationalP.style.bottom = "5px";
+content.style.position = "relative";
+content.appendChild(informationalP);
