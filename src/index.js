@@ -52,7 +52,7 @@ newProjectButton.addEventListener("click", createNewProject);
 const content = document.getElementById("content");
 
 export const informationalP = document.createElement("p");
-informationalP.innerHTML = "The inbox section is for <b>review only</b>. You can't create, edit or check todo items here, you need to create separate project for that.";
+informationalP.innerHTML = "The inbox section is for <b>review only</b>. You can't create, edit or check todo items here. You need to create separate project for that.";
 informationalP.style.fontStyle = "italic";
 informationalP.style.position = "absolute";
 informationalP.style.bottom = "5px";
