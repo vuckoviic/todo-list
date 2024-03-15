@@ -1,6 +1,7 @@
 import { projects, newProjectButton, addItem, informationalP } from "./index.js";
 import { clearContent } from "./clearContent.js";
 import { displayedItems, showingItems, showItem } from "./showingItems.js";
+import { index } from "./editShowItem.js";
 
 const inbox = document.getElementById("inbox");
 export let inboxArray = [];
@@ -60,16 +61,22 @@ inbox.addEventListener("click", ()=> {
         const projectItem = document.createElement("p");
         projectItem.innerText = `${name[i].title} | ${name[i].dueDate}`;
         
-        if (name[i].priority == "low") {
-            projectItem.style.backgroundColor = "lightblue";
-        }
-
-        else if (name[i].priority == "normal") {
-            projectItem.style.backgroundColor = "rgb(51, 126, 245)";
+        if (content.firstChild.firstChild.checked == true) {
+            projectItem.style.backgroundColor = "green";
         }
 
         else {
-            projectItem.style.backgroundColor = "red";
+            if (name[i].priority == "low") {
+                projectItem.style.backgroundColor = "lightblue";
+            }
+    
+            else if (name[i].priority == "normal") {
+                projectItem.style.backgroundColor = "rgb(51, 126, 245)";
+            }
+    
+            else {
+                projectItem.style.backgroundColor = "red";
+            }
         }
 
         projectItem.style.padding = "2px";
@@ -175,13 +182,11 @@ export function createNewProject() {
             // deleteProject.style.marginTop = "5px";
 
             // deleteProject.addEventListener("click", (e) => {
-            //     projects.removeChild(project);
-            //     allProjectArrays.pop(name);
-            //     inboxArray.pop(name);
-            //     console.log(allProjects);
-            //     console.log(allProjectArrays);
+            //     projects.removeChild(projectDiv);
+            //     allProjectArrays.splice(index, 1);
+            //     allProjects.splice(index, 1);
             // })
-            
+
             // project.appendChild(deleteProject);
         }
 
