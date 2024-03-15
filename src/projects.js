@@ -118,6 +118,31 @@ export function createNewProject() {
                 showingItems(activeArray);
             
             });
+
+            // const deleteProject = document.createElement("button");
+            // deleteProject.innerText = "Delete Project";
+
+            // project.style.display = "flex";
+            // project.style.flexDirection = "column";
+            // project.style.justifyContent = "center";
+            // project.style.alignItems = "center";
+
+            // deleteProject.style.backgroundColor = "white";
+            // deleteProject.style.maxHeight = "15px";
+            // deleteProject.style.maxWidth = "15px";
+            // deleteProject.style.fontSize = "1em";
+            // deleteProject.style.color = "navy";
+            // deleteProject.style.marginTop = "5px";
+
+            // deleteProject.addEventListener("click", (e) => {
+            //     projects.removeChild(project);
+            //     allProjectArrays.pop(name);
+            //     inboxArray.pop(name);
+            //     console.log(allProjects);
+            //     console.log(allProjectArrays);
+            // })
+            
+            // project.appendChild(deleteProject);
         }
 
     });
