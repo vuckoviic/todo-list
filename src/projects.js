@@ -15,8 +15,6 @@ export let activeArray;
 
 activeArray = inboxArray;
 
-let name;
-
 const content = document.getElementById("content");
 
 inbox.classList.add("active-project");
@@ -54,50 +52,15 @@ inbox.addEventListener("click", ()=> {
     
     content.appendChild(informationalP);
 
-    projectDiv.innerHTML = "";
-    projectDiv.appendChild(project);
-    
-    for (let i = 0; i < name.length; i++) {
-        const projectItem = document.createElement("p");
-        projectItem.innerText = `${name[i].title} | ${name[i].dueDate}`;
-        
-        if (content.firstChild.firstChild.checked == true) {
-            projectItem.style.backgroundColor = "green";
-        }
-
-        else {
-            if (name[i].priority == "low") {
-                projectItem.style.backgroundColor = "lightblue";
-            }
-    
-            else if (name[i].priority == "normal") {
-                projectItem.style.backgroundColor = "rgb(51, 126, 245)";
-            }
-    
-            else {
-                projectItem.style.backgroundColor = "red";
-            }
-        }
-
-        projectItem.style.padding = "2px";
-        projectItem.style.marginTop = "3px";
-
-        projectDiv.appendChild(projectItem);
-        
-    }
-
     content.firstChild.firstChild.disabled = true;
 
 });
 
-let projectDiv;
-let project;
-
 export function createNewProject() {
 
-    projectDiv = document.createElement("div");
-
-    project = document.createElement("button");
+    const projectDiv = document.createElement("div");
+    const project = document.createElement("button");
+    
     const projectNameInput = document.createElement("input");
     const projectSave = document.createElement("button");
     const projectExit = document.createElement("button");
@@ -129,7 +92,7 @@ export function createNewProject() {
     
     projectSave.addEventListener("click", () => {
         
-         name = projectNameInput.value;
+        let name = projectNameInput.value;
         
         if (name.length < 1) {
             alert("Please Insert Name For Your Project.");
@@ -141,7 +104,7 @@ export function createNewProject() {
             allProjectArrays.push(name);
             inboxArray.push(name);
     
-            project.addEventListener("click", ()=> {
+            project.addEventListener("click", (e)=> {
                 
                 clearContent();
                 
@@ -163,6 +126,38 @@ export function createNewProject() {
                 }
 
                 showingItems(activeArray);
+
+                projectDiv.innerHTML = "";
+                projectDiv.appendChild(project);
+                
+                for (let i = 0; i < name.length; i++) {
+                    const projectItem = document.createElement("p");
+                    projectItem.innerText = `${name[i].title} | ${name[i].dueDate}`;
+                    
+                    if (content.firstChild.firstChild.checked == true) {
+                        projectItem.style.backgroundColor = "green";
+                    }
+
+                    else {
+                        if (name[i].priority == "low") {
+                            projectItem.style.backgroundColor = "lightblue";
+                        }
+                
+                        else if (name[i].priority == "normal") {
+                            projectItem.style.backgroundColor = "rgb(51, 126, 245)";
+                        }
+                
+                        else {
+                            projectItem.style.backgroundColor = "red";
+                        }
+                    }
+
+                    projectItem.style.padding = "2px";
+                    projectItem.style.marginTop = "3px";
+
+                    projectDiv.appendChild(projectItem);
+                    
+                }
 
             });
 
