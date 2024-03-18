@@ -127,6 +127,11 @@ export function createNewProject() {
 
                 showingItems(activeArray);
 
+            });
+
+            const refreshProject = document.createElement("button");
+            refreshProject.innerText = "↻";
+            refreshProject.addEventListener('click', () => {
                 projectDiv.innerHTML = "";
                 projectDiv.appendChild(project);
                 
@@ -158,8 +163,11 @@ export function createNewProject() {
                     projectDiv.appendChild(projectItem);
                     
                 }
+            })
 
-            });
+            refreshProject.classList.add("refresh-project");
+
+            project.appendChild(refreshProject);
 
             // const deleteProject = document.createElement("button");
             // deleteProject.innerText = "Delete Project";
