@@ -68,7 +68,7 @@ export function createNewProject() {
     projectSave.innerText = "Save";
     projectExit.innerText = "Exit";
 
-    project.style.padding = "3px";
+    project.style.padding = "9px";
 
     projectSave.style.backgroundColor = "white";
     projectSave.style.maxHeight = "15px";
@@ -165,24 +165,15 @@ export function createNewProject() {
                 }
             })
 
-            refreshProject.classList.add("refresh-project");
+            refreshProject.setAttribute("id", "refresh-project");
 
             project.appendChild(refreshProject);
 
-            // const deleteProject = document.createElement("button");
-            // deleteProject.innerText = "Delete Project";
+            const deleteProject = document.createElement("button");
+            deleteProject.innerText = "✖";
+            deleteProject.setAttribute("id", "delete-project");
 
-            // project.style.display = "flex";
-            // project.style.flexDirection = "column";
-            // project.style.justifyContent = "center";
-            // project.style.alignItems = "center";
-
-            // deleteProject.style.backgroundColor = "white";
-            // deleteProject.style.maxHeight = "15px";
-            // deleteProject.style.maxWidth = "15px";
-            // deleteProject.style.fontSize = "1em";
-            // deleteProject.style.color = "navy";
-            // deleteProject.style.marginTop = "5px";
+            project.classList.add("project");
 
             // deleteProject.addEventListener("click", (e) => {
             //     projects.removeChild(projectDiv);
@@ -190,7 +181,7 @@ export function createNewProject() {
             //     allProjects.splice(index, 1);
             // })
 
-            // project.appendChild(deleteProject);
+            project.appendChild(deleteProject);
         }
 
     });

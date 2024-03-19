@@ -202,7 +202,41 @@ dialog select {
     cursor: pointer;
 }
 
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .active-project {
     font-style: italic;
     font-weight: bold;
+}
+
+#refresh-project {
+    transition: 0.3s;
+    background-color: navy;
+    color: white;
+    font-size: 1.2em;
+}
+
+#refresh-project:hover {
+    background-color: white;
+    color: navy;
+    cursor: pointer;
+}
+
+#delete-project {
+    background-color: white;
+    font-size: 1em;
+    color: navy;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+#delete-project:hover {
+    background-color: red;
+    transition: 0.3s;
+    cursor: pointer;
 }
