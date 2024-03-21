@@ -52,6 +52,12 @@ inbox.addEventListener("click", ()=> {
     
     content.appendChild(informationalP);
 
+    console.log(content.children.length);
+
+    for (const child of content.children) {
+        child.firstChild.disabled = true;
+    }
+
     content.firstChild.firstChild.disabled = true; // NEED TO DISABLE EVERY ITEM, NOT ONLY FIRST ONE
 
 });
