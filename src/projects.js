@@ -169,19 +169,7 @@ export function createNewProject() {
 
             project.appendChild(refreshProject);
 
-            const deleteProject = document.createElement("button");
-            deleteProject.innerText = "✖";
-            deleteProject.setAttribute("id", "delete-project");
-
             project.classList.add("project");
-
-            // deleteProject.addEventListener("click", (e) => {
-            //     projects.removeChild(projectDiv);
-            //     allProjectArrays.splice(index, 1);
-            //     allProjects.splice(index, 1);
-            // })
-
-            project.appendChild(deleteProject);
         }
 
     });
