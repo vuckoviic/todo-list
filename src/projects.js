@@ -52,7 +52,7 @@ inbox.addEventListener("click", ()=> {
     
     content.appendChild(informationalP);
 
-    content.firstChild.firstChild.disabled = true;
+    content.firstChild.firstChild.disabled = true; // NEED TO DISABLE EVERY ITEM, NOT ONLY FIRST ONE
 
 });
 
@@ -175,7 +175,7 @@ export function createNewProject() {
     });
 
     projectExit.addEventListener("click", () => {
-        projects.removeChild(project);
+        projectDiv.removeChild(project);
         projects.removeChild(projectDiv);
     })
 
