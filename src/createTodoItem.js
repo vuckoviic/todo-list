@@ -1,5 +1,5 @@
 import { Item, dialog } from "./index.js";
-import { activeArray } from "./projects.js";
+import { activeArray, populateStorage, setValues } from "./projects.js";
 import { showingItems } from "./showingItems.js";
 
 export let priority;
@@ -31,5 +31,6 @@ export function createTodoItemFunc (activeArray) {
         dialog.close();
     }
 
+    populateStorage();
 
 }

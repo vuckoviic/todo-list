@@ -36,6 +36,7 @@ inbox.addEventListener("click", ()=> {
     for (let i = 0; i < allProjects.length; i++) {
         if (allProjects[i].classList.contains("active-project")) {
             activeArray = allProjectArrays[i];
+            populateStorage();
         }
     }
 
@@ -176,6 +177,9 @@ export function createNewProject() {
             project.appendChild(refreshProject);
 
             project.classList.add("project");
+
+            populateStorage();
+
         }
 
     });
@@ -191,4 +195,50 @@ export function createNewProject() {
 
     allProjects.push(project);
 
+}
+
+export function getValues() {
+
+    console.log("Reading values...");
+
+    const savedActiveArray = localStorage.getItem("activeArray");
+    const savedAllProjectArrays = localStorage.getItem("allProjectArrays");
+    const savedAllProjects = localStorage.getItem("allProjects");
+
+    if (savedActiveArray.length > 0 && savedAllProjectArrays.length > 1 && savedAllProjects > 1) {
+        activeArray = JSON.parse(savedActiveArray);
+        allProjectArrays = JSON.parse(savedAllProjectArrays);
+        allProjects = JSON.parse(savedAllProjects);    
+    }
+
+    console.log(activeArray);
+    console.log(allProjectArrays);
+    console.log(allProjects);
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~");
+}
+
+export function populateStorage() {
+
+    console.log("Storage has been updated");
+
+    let stringifiedActiveArray = JSON.stringify(activeArray);
+    let stringifiedAllProjects = JSON.stringify(allProjects);
+    let stringifiedAllProjectArrays = JSON.stringify(allProjectArrays);
+
+    console.log(stringifiedActiveArray);
+    console.log(stringifiedAllProjects);
+    console.log(stringifiedAllProjectArrays);
+
+    localStorage.setItem("activeArray", stringifiedActiveArray);
+    localStorage.setItem("allProjects", stringifiedAllProjects);
+    localStorage.setItem("allProjectArrays", stringifiedAllProjectArrays);
+}
+
+if (localStorage.getItem("activeArray") === null) {
+    console.log("There is no such this as 'activeArray' inside localStorage. I will populate it now...")
+    populateStorage();
+}
+
+else {
+    getValues();
 }
