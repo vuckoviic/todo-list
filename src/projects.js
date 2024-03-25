@@ -197,12 +197,3 @@ export function createNewProject() {
     allProjects.push(project);
 
 }
-
-if (localStorage.getItem("activeArray") === null) {
-    console.log("There is no such this as 'activeArray' inside localStorage. I will populate it now...")
-    populateStorage();
-}
-
-else {
-    getValues();
-}

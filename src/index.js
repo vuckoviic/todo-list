@@ -2,6 +2,7 @@ import { showingItems } from "./showingItems.js";
 import { createTodoItemFunc } from  "./createTodoItem.js";
 import { clearContent } from "./clearContent.js";
 import { activeArray, createNewProject } from "./projects.js";
+import { populateStorage, getValues } from "./localStorage.js";
 
 const dialog = document.getElementsByTagName("dialog")[0];
 export { dialog };
@@ -58,3 +59,12 @@ informationalP.style.position = "absolute";
 informationalP.style.bottom = "5px";
 content.style.position = "relative";
 content.appendChild(informationalP);
+
+if (localStorage.getItem("inboxArray") === null) {
+    console.log("There is no such this as 'inboxArray' inside localStorage. I will populate it now...")
+    populateStorage();
+}
+
+else {
+    getValues();
+}
