@@ -1,6 +1,7 @@
 import { Item, dialog } from "./index.js";
-import { activeArray, populateStorage, setValues } from "./projects.js";
+import { activeArray, setValues } from "./projects.js";
 import { showingItems } from "./showingItems.js";
+import { populateStorage } from "./localStorage.js";
 
 export let priority;
 

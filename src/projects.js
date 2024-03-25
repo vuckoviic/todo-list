@@ -2,14 +2,15 @@ import { projects, newProjectButton, addItem, informationalP } from "./index.js"
 import { clearContent } from "./clearContent.js";
 import { displayedItems, showingItems, showItem } from "./showingItems.js";
 import { index } from "./editShowItem.js";
+import { getValues, populateStorage } from "./localStorage.js";
 
 const inbox = document.getElementById("inbox");
 export let inboxArray = [];
 
-let allProjects = [];
+export let allProjects = [];
 allProjects.push(inbox);
 
-let allProjectArrays = [];
+export let allProjectArrays = [];
 allProjectArrays.push(inboxArray);
 export let activeArray;
 
@@ -195,43 +196,6 @@ export function createNewProject() {
 
     allProjects.push(project);
 
-}
-
-export function getValues() {
-
-    console.log("Reading values...");
-
-    const savedActiveArray = localStorage.getItem("activeArray");
-    const savedAllProjectArrays = localStorage.getItem("allProjectArrays");
-    const savedAllProjects = localStorage.getItem("allProjects");
-
-    if (savedActiveArray.length > 0 && savedAllProjectArrays.length > 1 && savedAllProjects > 1) {
-        activeArray = JSON.parse(savedActiveArray);
-        allProjectArrays = JSON.parse(savedAllProjectArrays);
-        allProjects = JSON.parse(savedAllProjects);    
-    }
-
-    console.log(activeArray);
-    console.log(allProjectArrays);
-    console.log(allProjects);
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~");
-}
-
-export function populateStorage() {
-
-    console.log("Storage has been updated");
-
-    let stringifiedActiveArray = JSON.stringify(activeArray);
-    let stringifiedAllProjects = JSON.stringify(allProjects);
-    let stringifiedAllProjectArrays = JSON.stringify(allProjectArrays);
-
-    console.log(stringifiedActiveArray);
-    console.log(stringifiedAllProjects);
-    console.log(stringifiedAllProjectArrays);
-
-    localStorage.setItem("activeArray", stringifiedActiveArray);
-    localStorage.setItem("allProjects", stringifiedAllProjects);
-    localStorage.setItem("allProjectArrays", stringifiedAllProjectArrays);
 }
 
 if (localStorage.getItem("activeArray") === null) {
