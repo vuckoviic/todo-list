@@ -4,7 +4,8 @@ import { displayedItems, showingItems, showItem } from "./showingItems.js";
 import { index } from "./editShowItem.js";
 import { getValues, populateStorage } from "./localStorage.js";
 
-const inbox = document.getElementById("inbox");
+export let inbox;
+inbox = document.getElementById("inbox");
 export let inboxArray = [];
 
 export let allProjects = [];
@@ -60,7 +61,8 @@ inbox.addEventListener("click", ()=> {
         child.firstChild.disabled = true;
     }
 
-    content.firstChild.firstChild.disabled = true; // NEED TO DISABLE EVERY ITEM, NOT ONLY FIRST ONE
+    // getValues();
+
 
 });
 
